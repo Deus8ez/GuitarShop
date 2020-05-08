@@ -1,0 +1,552 @@
+* {
+    box-sizing: border-box;
+}
+
+figcaption {
+    color: white;
+    font-size: 13px;
+    position: absolute;
+    top: 36px;
+    margin-left: 13px
+}
+
+h1 {
+    text-align: center;
+    color: white;
+    margin: 0;
+    padding: 20px;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+
+
+a {
+    text-decoration: none;
+}
+
+input {
+    margin-top: 8px!important;
+    border-radius: 4px;
+}
+
+table {
+    width: 50%;
+    margin: auto
+}
+
+.body {
+    display: flex;
+    width: 100%;
+    display: inline-block;
+    text-align: center;
+    height: 80vh;
+    padding: 10px;
+    margin: auto;
+    margin-top: 14vh;
+    background-image: url("imgs/24490.jpg");
+    background-size: cover;
+}
+
+.guitaritems {
+    display: inline-block;
+    padding: 12px;
+    margin: 1% 1%;
+    width:30%; 
+    height: 95%;
+    text-align: center;
+    border-radius: 3px;  
+    padding-top: 13%;
+    background: rgba(175, 171, 147, 0.2)
+}
+
+
+.guitaritems:hover{
+    cursor: pointer;
+    box-shadow: 4px 4px 4px 4px grey;  
+    transform: scale(1.05);
+ 
+}
+
+// h1{
+//     vertical-align: middle
+// }
+
+.guitaritems:nth-of-type(1){
+    background-image: url(imgs/acoustic.jpg);
+    background-size: cover;
+    background-position: center
+    
+}
+
+.guitaritems:nth-of-type(2){
+    background-image: url(imgs/electric.jpg);
+    background-size: cover;
+    background-position: center
+}
+
+.guitaritems:nth-of-type(3){
+    background-image: url(imgs/ukulele.jpg);
+    background-size: cover;
+    background-position: center
+}
+
+.details {
+    background: rgba(175, 171, 147, 0.5);
+    display: inline-block
+}
+
+.get_details {
+    background-color: white;
+    padding: 8px;
+    font-weight: bold;
+    font-size: 15px;
+    color: purple;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    border: none;
+    
+}
+
+.get_details_checkout {
+    background-color: white;
+    padding: 8px;
+    font-weight: bold;
+    font-size: 15px;
+    color: purple;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    border: none;
+    width: 100%;
+    height: 15%;
+    margin-top: 10px;
+}
+
+.get_details:hover,
+.get_details:active {
+    color: white;
+    background-color: purple;
+    cursor: pointer
+}
+
+.get_details_checkout:hover,
+.get_details_checkout:active {
+    color: white;
+    background-color: purple;
+    cursor: pointer
+}
+
+.get_details a {
+    padding: 10px; 
+}
+
+.containerBody {
+    margin: 20px;
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
+    background-color: brown;
+    align-content: flex-end;
+}
+
+.logo {
+    height: 100%;
+    width: 28px;
+    vertical-align: middle;
+}
+
+.brand{
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 22px;
+    color: purple
+}
+
+.brand:hover,
+.brand:active{
+    cursor: default
+}
+
+.mainheader {
+    width: 100%;
+    padding: 8px 16px;
+    position: fixed;
+    background-color: white;
+    z-index: 1;
+    border-bottom-style: solid;
+    border-bottom-color: goldenrod;
+    border-bottom-width: 2px
+}
+
+.mainheader > div {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.mainnav {
+    display: inline-block;
+    width: calc(100% - 150px);
+    text-align: right;
+    vertical-align: middle;
+}
+
+.navitems {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.navitem {
+    display: inline-block;
+    padding: 20px;
+    font-weight: bold;
+}
+
+.navitem a:hover, 
+.navitem a:active{
+    color: purple;
+    padding-bottom: 6px;
+    border-bottom: 2px solid purple;
+    cursor: pointer
+}
+
+.signin button{
+    color: white;
+    background-color: purple;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-weight: bold;
+    font-size: 0.9rem;
+    
+}
+
+.signin button:hover,
+.signin button:active {
+    color: purple;
+    background-color: white;
+    cursor: pointer;
+    // padding: 8px 16px;
+    // border-radius: 6px;
+    // border: none;
+    // border-bottom: 2px solid purple
+}
+
+
+
+.signbtn:hover,
+.signbtn:active {
+    color: white;
+    background-color: purple;
+    cursor: pointer;
+}
+
+.signup:hover,
+.signup:active {
+    color: white;
+    cursor: pointer;
+}
+
+.signingpage {
+    width: 100%;
+    height: 818px;
+    top: 50px;
+    position: fixed;
+    // display: none;
+    text-align: center;
+    margin-top: 45px;
+    background: rgba(177, 23, 131, 0.5)
+    // z-index: 999;
+    // vertical-align: middle;
+}
+
+.signingpageitems {
+    margin-top: 10px;
+    width: 20%;
+    display: inline-block;
+    text-align: center;
+    background-color: grey;
+    border: goldenrod;
+    border-style: solid;
+    border-width: 2px;
+    vertical-align: top;
+}
+
+.signinpage{
+    border-right-style: none;
+}
+
+.signinform{
+    margin-bottom: 44px;
+}
+
+.signuppage{
+    border-left-style: none;
+}
+
+.signingpageitem {
+    padding: 8px;
+    margin: auto;
+    display: block;
+}
+
+// .backdrop {
+
+// }
+
+.footer {
+    background-color: gray;
+    height: 50vh;
+    display: block;
+    top: 25%;
+    border-top-style: solid;
+    border-top-color: goldenrod;
+    border-top-width: 2px
+}
+
+.feature_list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+.feature {
+    display: inline-block;
+    width: 30%;
+    vertical-align: top;
+}
+
+.feature_des {
+    text-align: center;
+    font-weight: bold;
+    color: white;
+    font-size: 20px;
+}
+
+.feature_img {
+    background: white;
+    width: 128px;
+    height: 128px;
+    border: 2px solid darkgoldenrod;
+    border-radius: 50%;
+    margin: auto;
+    padding: 5px
+}
+
+.main_footer {
+    background: rgba(145, 33, 145, 0.815);
+    border-top-style: solid;
+    border-top-color: goldenrod;
+    border-top-width: 2px
+
+}
+
+.links {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+}
+
+.link {
+    display: inline-block;
+    padding: 10px;
+}
+
+.link a:hover,
+.link a:active {
+    text-decoration: underline;
+    text-decoration-color: goldenrod;
+    text-decoration-thickness: 2px;
+    text-decoration-style: solid;
+    cursor: pointer;
+}
+
+.acousticGuitarPage {
+    display: inline-block;
+    margin-top: 77px;
+    width:100%;
+    text-align: center;
+}   
+
+.acousticGuitarsHeading{
+    background-color: rgba(130, 35, 145, 0.5);
+    border-bottom-style: solid;
+    border-bottom-color: goldenrod;
+    border-bottom-width: 2px
+}
+
+
+.acousticGuitar{
+    background-image: url("imgs/24490.jpg");
+    background-size: cover;
+    position: absolute;
+    padding: 20px;
+    margin: auto;
+    text-align: center;
+    left: 0;
+    width: 100%;
+    height: 150vh;
+
+}
+
+
+
+.guitarImage{
+    height: 220px;
+    width: 220px;
+    border-radius: 4px;
+    // background-image: url("imgs/ac1.jpg");
+}
+
+.acGuitarItemForSale {
+    display: inline-block;
+    padding: 10px;
+    border: solid;
+    border-color: goldenrod;
+    margin: 6px;
+    width: 25%;
+    border-radius: 6px;
+}
+
+
+
+.guitarAddToCart {
+    background-color: white;
+    padding: 8px;
+    font-weight: bold;
+    font-size: 15px;
+    color: purple;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    border: none
+}
+
+.guitarAddToCart:hover,
+.guitarAddToCart:active {
+    color: white;
+    background-color: purple;
+    cursor: pointer
+}
+
+.cartDropDown {
+    position: absolute;
+    width: 240px;
+    height: 340px;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    border: 1px solid black;
+    background-color: white;
+    top: 90px;
+    right: 40px;
+    z-index: 9;
+     
+  }
+
+  .cartItems {
+    height: 240px;
+    display: flex;
+    flex-direction: column;
+    overflow: scroll;
+  }
+
+  .cartIcon:hover,
+  .cartIcon:active{
+    cursor: pointer;
+  }
+
+  .CartDropDownItemInfo {
+    display: inline-block;  
+  }
+
+  .CartDropDownItems{
+    display: inline-block;
+    position: relative;
+    height: 50%;
+     
+  }
+
+  .CartDropDownItem{
+    display: inline-block;
+    position: relative;
+    bottom: 18%;
+    left: 8%
+  }
+
+  .CartDropDownImgs{
+    height: 40%;
+    width: 50%;  
+  }
+
+  .CartDropDownBtn{
+    position: relative;
+    bottom: 18%;
+    color: purple;
+    background-color: white;
+    font-weight: bold;
+    border-radius: 2px;
+    height: 15%;
+  }
+
+  .CartDropDownBtn:hover,
+  .CartDropDownBtn:active{
+    
+    color: white;
+    background-color: purple;
+    cursor: pointer
+  }
+  .checkOutPage {
+      display: inline-block;
+      margin-top: 100px;
+      width: 100%;
+      text-align: center;
+      padding: 3%
+  }
+
+  .checkoutLink {
+    background-color: purple;
+    padding: 8px;
+    font-weight: bold;
+    font-size: 1rem;
+    color: white;
+    border-radius: 4px;
+    border: none;
+    display: inherit;
+    text-align: center;
+    margin: 10px
+  }
+
+  .checkoutLink:hover,
+  .checkoutLink:active {
+    background-color: white;
+    color: purple;
+  }
+
+
+  .trashCan {
+    font-size: xx-large;
+    background-color: white;
+    border: none;
+    border-radius: 5px;  
+  }
+
+  .trashCan:hover,
+  .trashCan:active {
+    background-color: red;
+    cursor: pointer;
+  }
+
+  .more:hover,
+  .more.active {
+    text-decoration: underline;
+    color: green;
+    cursor: pointer;
+  }
+
+  .less:hover,
+  .less.active {
+    text-decoration: underline;
+    color: red;
+    cursor: pointer;
+  }
