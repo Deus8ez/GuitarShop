@@ -18,7 +18,7 @@ const Body = (props) => {
         </div>
         <div className={classes.guitaritems}>
             <div className={classes.details}>
-                <h1>Electic guitars</h1>
+                <h1>Electric guitars</h1>
                 <button className={classes.get_details}><Link to='/electricguitars'>Get details</Link></button>
             </div>
         </div>

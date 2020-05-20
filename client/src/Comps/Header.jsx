@@ -5,8 +5,15 @@ import { connect } from 'react-redux'
 import CartDropDown from './Cart'
 import CartIcon from './CartIcon'
 import { toggleSignInPageHidden } from '../redux/sign-in-page/actions'
+import { logOut } from '../redux/user/user.actions'
+import axios from 'axios'
 
 const Header = (props) => {
+
+    function loggingOut(){
+        localStorage.removeItem('jwtToken')  
+        props.logOut()
+    }
 
     return <header className={classes.mainheader}>
                 <div>
@@ -16,7 +23,7 @@ const Header = (props) => {
                 </div><nav className={classes.mainnav}>
                     <ul className={classes.navitems}>
                         <li className={classes.navitem}>
-                            User nickname
+                            {props.user.currentUser}
                         </li>
                         <li className={classes.navitem}>
                             <Link to="/">
@@ -24,7 +31,7 @@ const Header = (props) => {
                             </Link>
                         </li>
                         <li className={`${classes.navitem} ${classes.signin}`}>
-                            {<button onClick={props.toggleSignInPageHidden}>Sign in</button>} 
+                            {props.user.currentUser === null ? <button onClick={props.toggleSignInPageHidden}>Sign in</button> : <button onClick={loggingOut}>Sign out</button>} 
                         </li>
                         <li className={classes.navitem}>
                         <CartIcon/>
@@ -33,12 +40,12 @@ const Header = (props) => {
                 </nav>
                 {props.cart.hidden ? null : <CartDropDown/>}
             </header>
-   
 }
 
 const mapStateToProps = (state) => (state)
 
 const mapDispatchToProps = dispatch => ({
+    logOut: () => dispatch(logOut()),
     toggleSignInPageHidden: () => dispatch(toggleSignInPageHidden()),
     
 });

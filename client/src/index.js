@@ -9,6 +9,10 @@ import cartReducer from './redux/cart-store/reducer'
 import { PersistGate } from 'redux-persist/integration/react'
 // const store = createStore(cartReducer) 
 import {store, persistor} from './redux/store';
+import setAuthorizationToken from './utils/setAuthorizationToken'
+
+setAuthorizationToken(localStorage.jwtToken)
+
 ReactDOM.render(
   <Provider store={store}>
       <BrowserRouter>

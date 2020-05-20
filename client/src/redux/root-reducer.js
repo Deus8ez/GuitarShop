@@ -5,21 +5,23 @@ import SignInPageReducer from './sign-in-page/reducer'
 import guitarReducer from './to-be-sold/reducer'
 import {persistReducer} from 'redux-persist'
 import storage from 'redux-persist/lib/storage'
-import acousticGuitarArray from './acousticGuitars/reducer'
+import guitarList from './dbGuitars/reducer'
+import { reducer as reduxForm } from 'redux-form'
 // import guitarCostReducer from './priceCounter/reducer'
 
 const persistConfig = {
     key: 'root',
     storage,
-    whitelist: ['guitarsToBeSold'],
+    whitelist: ['guitarsToBeSold', 'user'],
 }
 
 const rootReducer = combineReducers({
     user: userReducer,
     cart: cartReducer,
     signinpage: SignInPageReducer,
+    form: reduxForm,
     guitarsToBeSold: guitarReducer,
-    acousticGuitarList: acousticGuitarArray
+    dbGuitarList: guitarList
 });
 
 

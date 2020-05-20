@@ -1,68 +1,56 @@
 import React, { Component } from "react"
 import classes from '../App.module.scss'
+import { connect } from 'react-redux'
+import {addGuitar} from '../redux/to-be-sold/action'
+import {setElectricGuitars} from '../redux/dbGuitars/action'
+import axios from 'axios'
 import el1 from '../imgs/el1.jpg'
 import el2 from '../imgs/el2.jpg'
 import el3 from '../imgs/el3.jpg'
 import el4 from '../imgs/el4.jpg'
 import el5 from '../imgs/el5.jpg'
 import el6 from '../imgs/el6.jpg'
+
 class Electrics extends Component {
-    state = {
-        electricGuitarArray: [ 
-            {
-              id: 7,
-              img: el1,
-              guitarName: "Bibop 1",
-              guitarCost: 100 + "$",
-              quantity: 1
-            },
-            {
-              id: 8,
-              img: el2,
-              guitarName: "Bibop 2",
-              guitarCost: 90 + "$",
-              quantity: 1
-            },
-            {
-              id: 9,
-              img: el3,
-              guitarName: "Bibop 3",
-              guitarCost: 110 + "$",
-              quantity: 1
-            },
-            {
-              id: 10,
-              img: el4,
-              guitarName: "Bibop 4",
-              guitarCost: 70 + "$",
-              quantity: 1
-            },
-            {
-              id: 11,
-              img: el5,
-              guitarName: "Bibop 5",
-              guitarCost: 85 + "$",
-              quantity: 1
-            },
-            {
-              id: 12,
-              img: el6,
-              guitarName: "Bibop 6",
-              guitarCost: 50 + "$",
-              quantity: 1
-            }
-          ]
-    }
-    render(){
+
+  state = {
+    images: [
+      {img: el1,
+          id: 7},   
+      {img: el2,
+          id: 8},
+      {img: el3,
+          id: 9},
+      {img: el4,
+          id: 10},
+      {img: el5,
+          id: 11},
+      {img: el6,
+          id: 12},
+      ],
+    electricGuitarList: []
+  }
+  
+  componentWillMount = () => {
+    axios.get('http://localhost:5000/electricGuitars')
+      .then(res => this.props.setElectricGuitars(res.data))
+      .catch(err => console.log(err))
+  }
+
+  addToCart = (e) => {
+    this.props.addGuitar(this.props.dbGuitarList.electricGuitarArray.find(el => el.id == e.target.id))
+  }
+
+  render(){
     return <body className={classes.acousticGuitarPage}>
-                    <h1 className={classes.acousticGuitarsHeading}>Acoustic guitars</h1>
+                    <h1 className={classes.acousticGuitarsHeading}>Electric guitars</h1>
                         <div className={classes.acousticGuitar}>
-                            {this.state.electricGuitarArray.map(el => { 
+                            {this.props.dbGuitarList.electricGuitarArray.map(el => { 
                                 return <div className={classes.acGuitarItemForSale}>
-                                        <img src={el.img} className={classes.guitarImage}></img>
+                                        <img src={this.state.images.find(img => img.id == el.id).img} className={classes.guitarImage}></img>
                                         <h2>{el.guitarName}</h2>
-                                        <h3>{el.guitarCost}</h3>
-                                        <button className={classes.guitarAddToCart}>Add to cart</button>
+                                        <h3>{el.guitarCost}$</h3>
+                                        <button onClick={this.addToCart} id={el.id} className={classes.guitarAddToCart}>Add to cart</button>
                                        </div>
                             })}
                         </div> 
@@ -70,4 +58,13 @@ class Electrics extends Component {
     }
 }
 
-export default Electrics
+const mapStateToProps = (state) =>{
+  return state
+}
+
+const mapDispatchToProps = (dispatch) =>({
+  addGuitar: (guitarID)=>dispatch(addGuitar(guitarID)),
+  setElectricGuitars: (guitarInfo)=>dispatch(setElectricGuitars(guitarInfo))
+})
+ 
+export default connect(mapStateToProps, mapDispatchToProps)(Electrics)

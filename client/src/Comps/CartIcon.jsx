@@ -13,7 +13,6 @@ const CartIcon = ({toggleCartHidden, guitars}) => (
 
 const mapStateToProps = ({guitarsToBeSold: {guitars}}) => ({
     guitars
-    
 })
 
 const mapDispatchToProps = dispatch => ({
