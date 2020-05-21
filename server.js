@@ -156,7 +156,7 @@ app.get('/electricGuitars', jsonParser, async (req, res) => {
 })
 
 app.post('/user/signup', jsonParser, async (req, res) => {
-    console.log(req.body)
+    
     try {
         const salt = await bcrypt.genSalt()
         const hashedPassword = await bcrypt.hash(req.body.signUpPassword, salt)
