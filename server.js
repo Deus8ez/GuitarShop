@@ -106,6 +106,8 @@ const electricGuitars = [
 app.use(bodyParser.urlencoded({extended: true}))
 
 // app.options('*', cors())
+app.use(cors())
+app.use(corsMiddleware);
 app.use(function (req, res, next) {
 
     // Website you wish to allow to connect
@@ -124,9 +126,8 @@ app.use(function (req, res, next) {
     // Pass to next layer of middleware
     next();
 });
-app.use(cors())
 
-app.use(corsMiddleware);
+
 acousticGuitars.map(el => 
     acousticProductsModel.findOne(el)
         .then(exGuitar => {
