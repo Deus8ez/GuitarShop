@@ -1,4 +1,4 @@
 module.exports = {
-    mongoURI: 'mongodb+srv://Darkhan:tokio111drift47@cluster0-ldqwn.mongodb.net/test?retryWrites=true&w=majority',
-    secretToken: 'zwtxrecytvuytbiyunoumopipkmjnhbgvfcdyxtzsexrydctfuvygibuhoinjpmklpkojinhbu'
+    mongoURI: process.env.MONGO_URI,
+    secretToken: process.env.SECRET_TOKEN
 }
