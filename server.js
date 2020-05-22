@@ -1,9 +1,12 @@
 const express = require('express')
 const app = express()
+const cors = require('cors')
+app.use(cors())
+
 const bodyParser = require('body-parser')
+const keys = require('./config/dev')
 const bcrypt = require('bcrypt')
 const path = require('path')
-const cors = require('cors')
 const jsonParser = express.json();
 
 const jwt = require('jsonwebtoken')
@@ -13,7 +16,7 @@ const testRoute = require('./utils/test')
 
 const cookieParser = require('cookie-parser')
 const mongoose = require('mongoose')
-const db = mongoose.connect(process.env.DATABASE)
+const db = mongoose.connect(keys.mongoURI)
 
 const UserSchema = mongoose.Schema({username: String, email: String, password: String}); 
 
@@ -23,7 +26,6 @@ const productSchema = mongoose.Schema({id: Number, guitarName: String, guitarCos
 
 const acousticProductsModel = mongoose.model('AcousticGuitars', productSchema);
 const electricProductsModel = mongoose.model('ElectricGuitars', productSchema);
-
 
 const acousticGuitars = [ 
     {
@@ -106,26 +108,25 @@ const electricGuitars = [
 app.use(bodyParser.urlencoded({extended: true}))
 
 // app.options('*', cors())
-app.use(cors())
-app.use(corsMiddleware);
-app.use(function (req, res, next) {
+// app.use(corsMiddleware);
+// app.use(function (req, res, next) {
 
-    // Website you wish to allow to connect
-    res.setHeader('Access-Control-Allow-Origin', '*');
+//     // Website you wish to allow to connect
+//     res.setHeader('Access-Control-Allow-Origin', '*');
 
-    // Request methods you wish to allow
-    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+//     // Request methods you wish to allow
+//     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
 
-    // Request headers you wish to allow
-    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+//     // Request headers you wish to allow
+//     res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
 
-    // Set to true if you need the website to include cookies in the requests sent
-    // to the API (e.g. in case you use sessions)
-    res.setHeader('Access-Control-Allow-Credentials', true);
+//     // Set to true if you need the website to include cookies in the requests sent
+//     // to the API (e.g. in case you use sessions)
+//     res.setHeader('Access-Control-Allow-Credentials', true);
 
-    // Pass to next layer of middleware
-    next();
-});
+//     // Pass to next layer of middleware
+//     next();
+// });
 
 
 acousticGuitars.map(el => 
@@ -205,7 +206,7 @@ app.post('/user/signup', jsonParser, async (req, res) => {
 app.post('/user/login', jsonParser, async (req, res) => {
 
     const user = await UserModel.findOne({email: req.body.email}).then(exUs => {return exUs})
-    const token = jwt.sign({_id: user._id, username: user.username, email: user.email, password: user.password}, process.env.TOKEN_SECRET)
+    const token = jwt.sign({_id: user._id, username: user.username, email: user.email, password: user.password}, keys.secretToken)
     
     if (user == null) {
 
