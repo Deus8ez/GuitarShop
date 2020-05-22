@@ -1,7 +1,6 @@
 const express = require('express')
 const app = express()
 const cors = require('cors')
-app.use(cors())
 
 const bodyParser = require('body-parser')
 const keys = require('./config/dev')
@@ -107,7 +106,8 @@ const electricGuitars = [
 
 app.use(bodyParser.urlencoded({extended: true}))
 
-// app.options('*', cors())
+app.use(cors())
+app.options('*', cors())
 // app.use(corsMiddleware);
 app.use(function (req, res, next) {
 
