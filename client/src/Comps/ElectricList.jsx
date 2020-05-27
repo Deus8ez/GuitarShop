@@ -32,7 +32,7 @@ class Electrics extends Component {
   }
   
   componentDidMount = () => {
-    axios.get('http://localhost:5000/elguitars')
+    axios.get('https://hidden-falls-70332.herokuapp.com/elguitars')
       .then(res => this.props.setElectricGuitars(res.data))
       .catch(err => console.log(err))
   }

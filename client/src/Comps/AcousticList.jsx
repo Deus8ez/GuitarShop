@@ -33,7 +33,7 @@ class Acoustics extends Component {
   }
 
   componentDidMount = () => {
-    axios.get('http://localhost:5000/acguitars')
+    axios.get('https://hidden-falls-70332.herokuapp.com/acguitars')
       .then(res => this.props.setAcousticGuitars(res.data))
       .catch(err => console.log(err))
   }
