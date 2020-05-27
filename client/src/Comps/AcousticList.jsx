@@ -32,8 +32,8 @@ class Acoustics extends Component {
     localAcousticGuitarList: []
   }
 
-  componentWillMount = () => {
-    axios.get('http://localhost:5000/acousticGuitars')
+  componentDidMount = () => {
+    axios.get('http://localhost:5000/acguitars')
       .then(res => this.props.setAcousticGuitars(res.data))
       .catch(err => console.log(err))
   }

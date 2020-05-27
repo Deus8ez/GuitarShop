@@ -31,8 +31,8 @@ class Electrics extends Component {
     electricGuitarList: []
   }
   
-  componentWillMount = () => {
-    axios.get('http://localhost:5000/electricGuitars')
+  componentDidMount = () => {
+    axios.get('http://localhost:5000/elguitars')
       .then(res => this.props.setElectricGuitars(res.data))
       .catch(err => console.log(err))
   }

@@ -51,7 +51,6 @@ class SigningPage extends Component {
 
                 localStorage.setItem('jwtToken', token)
                 setAuthorizationToken(token)
-               
 
                 this.props.setCurrentUser(decodedUser.username)
                 this.props.toggleSignInPageHidden()
@@ -63,13 +62,14 @@ class SigningPage extends Component {
 
     }
 
+
     handleSubmitSignUp = (e) => {
 
         e.preventDefault();
         if (this.state.signUpPassword !== this.state.signUpConfirmPassword) {
             alert('passwords do not match!')
         } else {
-            const url = 'http://localhost:5000/user/signup';
+            const url = 'http://localhost:5000/user/register';
 
             const user = {
                 signUpUsername: this.state.signUpUsername,
