@@ -7,7 +7,6 @@ const morgan = require('morgan');
 const config = require('./config');
 
 const authRoutes = require('./routes/api/auth');
-const userRoutes = require('./routes/api/users');
 const acGuitarRoute = require('./routes/api/acGuitarRoute');
 const elGuitarRoute = require('./routes/api/elGuitarRoute');
 
@@ -27,8 +26,6 @@ mongoose.connect(db)
 .then(() => console.log('MongoDB Connected...'))
 .catch(err => console.log(err));
 
-// app.use('/api/items', itemRoutes);
-app.use(userRoutes);
 app.use(authRoutes);
 app.use(acGuitarRoute);
 app.use(elGuitarRoute);
