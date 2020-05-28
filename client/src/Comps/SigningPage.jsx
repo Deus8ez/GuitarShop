@@ -6,6 +6,7 @@ import { toggleSignInPageHidden } from '../redux/sign-in-page/actions'
 import axios from 'axios'
 import setAuthorizationToken from '../utils/setAuthorizationToken'
 import jwt from 'jsonwebtoken'
+require('dotenv').config()
 
 class SigningPage extends Component {
     state = {
@@ -32,7 +33,7 @@ class SigningPage extends Component {
 
         e.preventDefault();
 
-        const url = 'http://localhost:5000/user/login';
+        const url = 'https://hidden-falls-70332.herokuapp.com/user/login';
 
         const user = {
             email: this.state.signInEmail, 
@@ -69,7 +70,7 @@ class SigningPage extends Component {
         if (this.state.signUpPassword !== this.state.signUpConfirmPassword) {
             alert('passwords do not match!')
         } else {
-            const url = 'http://localhost:5000/user/register';
+            const url = 'https://hidden-falls-70332.herokuapp.com/user/register';
 
             const user = {
                 signUpUsername: this.state.signUpUsername,
@@ -117,8 +118,11 @@ class SigningPage extends Component {
                         </form>
                     </article>
                     <article className={`${classes.signingpageitems} ${classes.signuppage}`}>
-                        <h1 >Sign up</h1>
-                        <form onChange={this.handleInputChange} onSubmit={this.handleSubmitSignUp}>
+                            <div>
+                                <button onClick={this.props.toggleSignInPageHidden} className={classes.closesignbutton}>&#10006;</button>
+                                <h1>Sign up</h1>
+                            </div>
+                        <form className={classes.signupform} onChange={this.handleInputChange} onSubmit={this.handleSubmitSignUp}>
                             <input 
                                 name="signUpUsername" 
                                 type="text" 

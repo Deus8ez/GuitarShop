@@ -6,7 +6,6 @@ import CartDropDown from './Cart'
 import CartIcon from './CartIcon'
 import { toggleSignInPageHidden } from '../redux/sign-in-page/actions'
 import { logOut } from '../redux/user/user.actions'
-import axios from 'axios'
 
 const Header = (props) => {
 

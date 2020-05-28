@@ -259,12 +259,9 @@ table {
     height: 818px;
     top: 50px;
     position: fixed;
-    // display: none;
     text-align: center;
     margin-top: 45px;
     background: rgba(177, 23, 131, 0.5)
-    // z-index: 999;
-    // vertical-align: middle;
 }
 
 .signingpageitems {
@@ -284,8 +281,24 @@ table {
 }
 
 .signinform{
-    margin-bottom: 44px;
+    padding-bottom: 6.8vh
 }
+
+.signupform{
+    padding-bottom: 1vh;
+}
+
+.closesignbutton{
+    position: absolute;
+    right: 30.5%;
+    top: 2%;
+}
+
+.closesignbutton:hover,
+.closesignbutton:active {
+    cursor: pointer;
+}
+
 
 .signuppage{
     border-left-style: none;
@@ -296,10 +309,6 @@ table {
     margin: auto;
     display: block;
 }
-
-// .backdrop {
-
-// }
 
 .footer {
     background-color: gray;
